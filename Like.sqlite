@@ -1,0 +1,27 @@
+The LIKE operator is used in a WHERE clause to search for a specified pattern in a column.
+
+SELECT column_name(s)
+FROM table_name
+WHERE column_name LIKE pattern;
+
+The "%" sign is used to define wildcards (missing letters) both before and after the pattern. 
+
+'s%' means City name starts with s.
+SELECT * FROM Customers
+WHERE City LIKE 's%';
+
+
+
+'%s' means City name ends with s.
+SELECT * FROM Customers
+WHERE City LIKE '%s';
+
+The following SQL statement selects all customers with a Country containing the pattern "land":
+SELECT * FROM Customers
+WHERE Country LIKE '%land%';
+
+Using the NOT keyword allows you to select records that do NOT match the pattern.
+The following SQL statement selects all customers with Country NOT containing the pattern "land":
+
+SELECT * FROM Customers
+WHERE Country NOT LIKE '%land%';
