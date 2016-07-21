@@ -1,0 +1,134 @@
+select e.empno, e.ename, e.deptno,
+d.deptno, d.loc from emp.e, dept.d
+where e.deptno = d.deptno
+
+
+using outer joins 
+
+select e.ename, d.deptno, d.dname from 
+
+emp e , dept d
+
+where e.deptno(+) = d.deptno 
+
+order by e.deptno;
+
+
+self joins
+
+select worker.ename || ' works for ' || manager.ename 
+
+from emp worker , emp manager
+
+where worker.mgr=manager.empno
+
+
+insert into emp(ename,deptno,sal,hiredate,job,commosion) VALUES ('KING',10,5000,'17-nov-81','PRESIDENT',0);
+
+
+
+INSERT INTO emp (ename,deptno,sal,hiredate,job,commosion) VALUES ('CLARK',10,2450,'2-MAY-81','MANAGER',0);
+
+INSERT INTO emp(ename,deptno,sal,hiredate,job,commosion) VALUES ('JONES',20,2975,'2-APR-81','MANAGER',0);
+
+INSERT INTO emp(ename,deptno,sal,hiredate,job,commosion) VALUES ('MARTIN',30,1250,'28-SEP-81','SALESMAN',1400);
+
+INSERT INTO emp(ename,deptno,sal,hiredate,job,commosion) VALUES ('ALLEN',30,1600,'20-FEB-81','SALAESMAN',300);
+
+INSERT INTO emp(ename,deptno,sal,hiredate,job,commosion) VALUES ('FORD',20,3000,'3-DEC-81','ANALYST');
+
+INSERT INTO emp(ename,deptno,sal,hiredate,job,commosion) VALUES ('SCOTT',20,3000,'9-DEC-82','ANALYST');
+INSERT INTO emp(ename,deptno,sal,hiredate,job,commosion) VALUES ('WARD',30,1250,'22-FEB-81','SALESMAN',500);
+INSERT INTO emp(ename,deptno,sal,hiredate,job,commosion) VALUES ('MILLER',10,1300,'23-JAN-82','CLERK');
+INSERT INTO emp(ename,deptno,sal,hiredate,job,commosion) VALUES ('TURNER',30,1500,'3-DEC-81','CLERK');
+INSERT INTO emp(ename,deptno,sal,hiredate,job,commosion) VALUES ('JAMES',30,950,'4-DEC-81','CLERK');
+INSERT INTO emp(ename,deptno,sal,hiredate,job,commosion) VALUES ('SMITH',20,800,'17-DEC-80','CLERK');
+INSERT INTO emp(ename,deptno,sal,hiredate,job,commosion) VALUES ('ADAMS',20,1100,'18-DEC-82','CLERK');
+
+
+1.select ename, sal, commosion from emp where sal <= commosion;
+2.select ename,sal from emp where sal between 1000 and 1500;
+3.select ename,hiredate from emp where hiredate like '%81';
+4.select ename from emp where ename like '_A%';
+5.select commosion ,ename from emp where commosion IS NULL;
+6.select ename,job,sal from emp where sal >= 1100 AND job = 'clerk';
+7.select ename,job,sal from emp where sal >= 1100 or job ='manager';
+8.select ename,job from emp where job not in ('clerk','manager','ANALYST');
+9.select ename,job,deptno,hiredate from emp order by hiredate;
+10.select ename,job,deptno,hiredate from emp order by hiredate desc;
+11. select ename,deptno,sal from emp order by deptno,sal desc;
+
+Exercise:
+---------
+
+1.select ename,sal from emp where sal > 2850;
+2. select ename,deptno from emp where ename = 'jones';
+3. select ename,job,hiredate from emp between 'feb' and 'may'
+5. select distinct ename,deptno from emp where deptno = 10 or deptno = 30  order by ename;
+6.select distinct ename,sal from emp where sal > 1500 and (deptno=10 or deptno = 30);
+7.select distinct ename,hiredate from emp where hiredate Like '%82';
+8.select DISTINCT ename,job from emp where job not in         ('clerk','manager','salesman','analyst','salaesman');
+9.select DISTINCT ename,sal,commosion from emp order by (sal and commosion) DESC;
+10.select distinct ename from emp WHERE ename like '__A%'.
+ if you need third letter to match the name then you use 2 underscore.
+ if you need second letter to match the name then you use 1 underscore 
+
+11.select distinct ename from emp where ename like '%ll% and (deptno = 30 or job='manager');
+
+12.select DISTINCT ename,job,sal from emp where (job='clerk' or job = 'analyst') and (sal != 1000 and sal !=3000 and sal != 5000)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
