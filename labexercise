@@ -81,6 +81,49 @@ Exercise:
 
 
 
+DATE: 27/7/2016
+
+
+select empno,ename,deptno from emp where Lower(ename) = 'blake'; 
+select ename,concat(ename,job),length (ename),INSTR(ename,'A') from emp where substr(job,1.5)='SALES';
+select round(45.923,2),round(45.923,0),round(45.923,-1) from DUAL;
+
+select ename,sal,comm,mod(sal,comm) from emp where job = 'SALESMAN';
+SELECT SYSDATE FROM DUAL
+select ename,(sysdate-hiredate)/7 WEEKS from emp where deptno = 10;
+select empno,hiredate,MONTHS_BETWEEN (sysdate,hiredate)TENURE,ADD_MONTHS(hiredate,6)
+REVIEW,NEXT_DAY (hiredate,'FRIDAY'),LAST_DAY(hiredate) from emp where MONTHS_BETWEEN (sysdate,hiredate) <200;
+
+select empno,hiredate,ROUND(hiredate,'MONTH'),TRUNC(hiredate,'MONTH') from emp where hiredate like '%82'
+
+select TO_CHAR (sal,'$99.999') SALARY 
+
+
+assingment on equi-joins:
+----------------------------
+
+1.Display all the managers & clerks who work in Accounts and Marketing departments.
+select emp.ename,emp.job,dept.dname from emp,dept where (emp.deptno=dept.deptno)
+and (dept.dname = 'ACCOUNTING' or dept.dname = 'marketing')
+
+2.Display all the salesmen who are not located at DALLAS. 
+
+select emp.ename,emp.job,dept.loc from emp,dept where dept.deptno= emp.deptno and job='SALESMAN' and loc != 'DALLAS'
+
+3.Select department name & location of all the employees working for CLARK. 
+
+select dept.dname,dept.loc,emp.ename from emp,dept where emp.empno = emp.mgr and ename = 'CLARK'
+
+4.select dept.dname,dept.loc,dept.deptno,emp.ename from emp,dept where dept.deptno = emp.deptno and job = 'MANAGER'
+5.select emp.ename from emp,dept where dept.deptno=emp.deptno and loc = 'DALLAS'
+6.Delete the records from the DEPT table that don’t have matching records in EMP 
+
+7.Display all the departmental information for all the existing employees
+ and if a department has no employees display it as “No employees”.
+
+select emp.ename, dept.dname,dept.loc,dept.deptno from emp,dept where 
+ 
+
 
 
 
